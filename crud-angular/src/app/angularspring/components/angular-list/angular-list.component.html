@@ -1,0 +1,45 @@
+<mat-table [dataSource]="angsprings">
+  <!-- Name Column -->
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell *matCellDef="let angspring">{{ angspring.name }}</mat-cell>
+  </ng-container>
+
+  <!-- category Column -->
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef>Category</mat-header-cell>
+    <mat-cell *matCellDef="let angspring">
+      {{ angspring.category }}
+
+      <mat-icon aria-hidden="false" aria-label="Curs category">
+        {{ angspring.category | category }}
+      </mat-icon>
+    </mat-cell>
+  </ng-container>
+  <!-- Actions Column -->
+
+  <ng-container matColumnDef="Actions">
+    <mat-header-cell
+      class="btnAdd"
+      *matHeaderCellDef
+      class="action-column-header"
+    >
+      <button mat-mini-fab color="accent" aria-label="Add curs">
+        <mat-icon (click)="onAdd()">add</mat-icon>
+      </button>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let angspring" class="action-column">
+      <button mat-icon-button color="primary" aria-label="edit curs">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" aria-label="delete curs">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
