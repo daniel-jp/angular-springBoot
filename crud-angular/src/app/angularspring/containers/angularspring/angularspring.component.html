@@ -5,6 +5,8 @@
       *ngIf="angsprings$ | async as angsprings; else loading"
       [angsprings]="angsprings"
       (add)="onAdd()"
+      (edit)="onEdit($event)"
+      (remove)="onRemove($event)"
     ></app-angular-list>
 
     <ng-template #loading>

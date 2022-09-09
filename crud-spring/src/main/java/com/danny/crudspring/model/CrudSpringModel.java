@@ -8,7 +8,6 @@ import javax.persistence.Id;
 
 import org.springframework.boot.context.properties.ConstructorBinding;
 
-import com.fasterxml.jackson.annotation.JacksonInject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Getter;

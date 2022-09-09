@@ -2,6 +2,11 @@
   <!-- Name Column -->
 
   <!-- Name Column -->
+  <ng-container matColumnDef="_id">
+    <mat-header-cell mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let angspring">{{ angspring._id }}</mat-cell>
+  </ng-container>
+  <!-- Name Column -->
   <ng-container matColumnDef="name">
     <mat-header-cell mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
     <mat-cell *matCellDef="let angspring">{{ angspring.name }}</mat-cell>
@@ -32,10 +37,10 @@
     </mat-header-cell>
     <mat-cell *matCellDef="let angspring" class="action-column">
       <button mat-icon-button color="primary" aria-label="edit curs">
-        <mat-icon>edit</mat-icon>
+        <mat-icon (click)="onEdit(angspring)">edit</mat-icon>
       </button>
       <button mat-icon-button color="warn" aria-label="delete curs">
-        <mat-icon>delete</mat-icon>
+        <mat-icon (click)="onDelete(angspring)">delete</mat-icon>
       </button>
     </mat-cell>
   </ng-container>

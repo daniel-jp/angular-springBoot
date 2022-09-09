@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Angspring } from '../../model/angspring';
 
 @Component({
@@ -8,20 +7,25 @@ import { Angspring } from '../../model/angspring';
   styleUrls: ['./angular-list.component.scss']
 })
 export class AngularListComponent implements OnInit {
+
   @Input() angsprings: Angspring[]=[];
   @Output() add = new EventEmitter(false);
+  @Output() edit = new EventEmitter(false);
+  @Output() remove = new EventEmitter(false);
 
-  readonly displayedColumns=['name','category','Actions'];
-  constructor( private router: Router,
-
-  private route:ActivatedRoute) { }
+  readonly displayedColumns=['_id','name','category','Actions'];
+  constructor(){}
 
   ngOnInit(): void {}
 
   onAdd(){
-
     this.add.emit(true);
-   // this.router.navigate(['new'], {relativeTo: this.route});
  }
 
+onEdit(angspring: Angspring) {
+  this.edit.emit(angspring);
+}
+onDelete(angspring: Angspring) {
+  this.remove.emit(angspring);
+}
 }
