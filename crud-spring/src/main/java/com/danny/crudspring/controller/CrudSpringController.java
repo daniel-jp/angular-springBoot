@@ -54,7 +54,7 @@ public class CrudSpringController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<CrudSpringModel> update( @RequestBody CrudSpringModel cspringModel) {
+  public ResponseEntity<CrudSpringModel> update(@RequestBody CrudSpringModel cspringModel) {
       return crudseRepository.findById(id).map(recordFound -> {
         recordFound.setName(cspringModel.getName());
                   recordFound.setCategory(cspringModel.getCategory());

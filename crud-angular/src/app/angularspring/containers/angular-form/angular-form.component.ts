@@ -1,8 +1,12 @@
+import { Angspring } from './../../model/angspring';
 import { AngspringsService } from '../../services/angsprings.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NonNullableFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { __values } from 'tslib';
+
 
 
 @Component({
@@ -13,6 +17,7 @@ import { Location } from '@angular/common';
 export class AngularFormComponent implements OnInit {
 
   form= this.formBuilder.group({
+    _id:[''],
     name:[''],
     category:['']
 
@@ -22,13 +27,22 @@ export class AngularFormComponent implements OnInit {
     private formBuilder: NonNullableFormBuilder,
     private service: AngspringsService,
     private snackBar: MatSnackBar,
-    private location: Location
+    private location: Location,
+    private route: ActivatedRoute
 
   ) {
-
+      //this.form;
    }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const angsp: Angspring = this.route.snapshot.data['angspring'];
+    this.form.setValue({
+      _id: angsp._id,
+      name: angsp.name,
+      category: angsp.category
+
+    });
+  }
 
   onSubmit(){
 

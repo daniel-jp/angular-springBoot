@@ -7,7 +7,7 @@ import { AngularspringComponent } from './containers/angularspring/angularspring
 const routes: Routes = [
   {path:'', component: AngularspringComponent},
   {path:'new', component: AngularFormComponent, resolve: { angspring: AngspringResolver } },
-  {path: 'edit/:id', component: AngularFormComponent,resolve:{ angspring: AngspringResolver}}
+  {path: 'update/:id', component: AngularFormComponent,resolve:{ angspring: AngspringResolver}}
 ];
 
 @NgModule({

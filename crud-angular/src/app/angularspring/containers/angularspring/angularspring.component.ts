@@ -48,7 +48,7 @@ refresh() {
   }
 
   onEdit(angspring: Angspring) {
-    this.router.navigate(['edit', angspring._id], { relativeTo: this.route });
+    this.router.navigate(['update', angspring._id], { relativeTo: this.route });
   }
 
   onRemove(angspring: Angspring) {
